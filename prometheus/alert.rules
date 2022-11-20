@@ -1,0 +1,11 @@
+groups:
+- name: instances
+  rules:
+  - alert: service_down
+    expr: up == 0
+    for: 10s
+    labels:
+      severity: critical
+    annotations:
+      summary: "Uygulama Down Oldu"
+      description: "Service {{ $labels.job }} is down."
